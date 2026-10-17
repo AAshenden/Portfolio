@@ -3,7 +3,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #111;
+    background: #010101;
     color: white;
 }
 
@@ -263,7 +263,7 @@ header p {
 .hero {
     position: relative;
 
-    height: 400px;
+    height: 600px;
 
     overflow: hidden;
 
@@ -407,5 +407,102 @@ header p {
 
     .bio-images {
         width: 100%;
+    }
+}
+
+/* =========================================
+   IMAGE LIGHTBOX
+   ========================================= */
+
+/* Indicate that images can be enlarged */
+
+.lightbox-trigger {
+    cursor: zoom-in;
+}
+
+/* Full-screen dark backdrop */
+
+#lightbox {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.88);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+    box-sizing: border-box;
+
+    z-index: 9999;
+
+    cursor: zoom-out;
+}
+
+/* Show the lightbox */
+
+#lightbox.active {
+    display: flex;
+}
+
+/* Image and caption container */
+
+.lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 95vw;
+    max-height: 95vh;
+}
+
+/* Enlarged image */
+
+#lightbox img {
+    display: block;
+
+    max-width: 95vw;
+    max-height: 82vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 6px;
+}
+
+/* Caption beneath the image */
+
+.lightbox-caption {
+    color: white;
+
+    font-size: 16px;
+    line-height: 1.5;
+
+    text-align: center;
+
+    max-width: 800px;
+
+    margin: 15px 0 0;
+
+    cursor: default;
+}
+
+/* Mobile adjustments */
+
+@media (max-width: 700px) {
+    #lightbox {
+        padding: 15px;
+    }
+
+    #lightbox img {
+        max-width: 95vw;
+        max-height: 75vh;
+    }
+
+    .lightbox-caption {
+        font-size: 14px;
     }
 }
